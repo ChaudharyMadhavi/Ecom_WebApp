@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Home from "./Home"
 import axios from "axios";
-// import { json } from "react-router-dom";
-// import { BiSunFill, BiMoon } from "react-icons/bi";
 
 const Navbar = ({ onSelectCategory, onSearch }) => {
   const getInitialTheme = () => {
@@ -65,21 +63,17 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
   }, [theme]);
 
   const categories = [
-    "Laptop",
-    "Headphone",
-    "Mobile",
-    "Electronics",
+    "Snacks",
+    "Crochet",
+    "Candles",
+    "Earrings",
     "Toys",
-    "Fashion",
   ];
   return (
     <>
       <header>
         <nav className="navbar navbar-expand-lg fixed-top">
           <div className="container-fluid">
-            <a className="navbar-brand" href="https://telusko.com/">
-              Telusko
-            </a>
             <button
               className="navbar-toggler"
               type="button"
@@ -150,7 +144,6 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
                     Cart
                   </i>
                 </a>
-                {/* <form className="d-flex" role="search" onSubmit={handleSearch} id="searchForm"> */}
                 <input
                   className="form-control me-2"
                   type="search"
@@ -158,8 +151,8 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
                   aria-label="Search"
                   value={input}
                   onChange={(e) => handleChange(e.target.value)}
-                  onFocus={() => setSearchFocused(true)} // Set searchFocused to true when search bar is focused
-                  onBlur={() => setSearchFocused(false)} // Set searchFocused to false when search bar loses focus
+                  onFocus={() => setSearchFocused(true)} 
+                  onBlur={() => setSearchFocused(false)} 
                 />
                 {showSearchResults && (
                   <ul className="list-group">
@@ -174,19 +167,12 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
                     ) : (
                       noResults && (
                         <p className="no-results-message">
-                          No Prouduct with such Name
+                          No Product with such Name
                         </p>
                       )
                     )}
                   </ul>
                 )}
-                {/* <button
-                  className="btn btn-outline-success"
-                  onClick={handleSearch}
-                >
-                  Search Products
-                </button> */}
-                {/* </form> */}
                 <div />
               </div>
             </div>

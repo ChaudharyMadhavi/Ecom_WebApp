@@ -282,7 +282,7 @@ const Cart = () => {
           updatedCartItems.map(async (item) => {
             try {
               const response = await axios.get(
-                `http://localhost:8080/api/product/${item.id}/image`,
+                `http://localhost:8080/api/products/${item.id}/image`,
                 { responseType: "blob" }
               );
               const imageFile = await converUrlToFile(response.data, response.data.imageName);
@@ -354,9 +354,9 @@ const Cart = () => {
     try {
       for (const item of cartItems) {
         const { imageUrl, imageName, imageData, imageType, quantity, ...rest } = item;
-        const updatedStockQuantity = item.stockQuantity - item.quantity;
+        const updatedStockQuantity = item.quantity - item.quantity;
   
-        const updatedProductData = { ...rest, stockQuantity: updatedStockQuantity };
+        const updatedProductData = { ...rest, quantity: updatedStockQuantity };
         console.log("updated product data", updatedProductData)
   
         const cartProduct = new FormData();

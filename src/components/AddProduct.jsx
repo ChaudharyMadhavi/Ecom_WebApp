@@ -8,7 +8,7 @@ const AddProduct = () => {
     description: "",
     price: "",
     category: "",
-    stockQuantity: "",
+    quantity: "",
     releaseDate: "",
     productAvailable: false,
   });
@@ -121,12 +121,12 @@ const AddProduct = () => {
             id="category"
           >
             <option value="">Select category</option>
-            <option value="Laptop">Laptop</option>
-            <option value="Headphone">Headphone</option>
-            <option value="Mobile">Mobile</option>
-            <option value="Electronics">Electronics</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Crochets">Crochet</option>
+            <option value="Earrings">Earrings</option>
+            {/* <option value="Keychains">Keychains</option> */}
             <option value="Toys">Toys</option>
-            <option value="Fashion">Fashion</option>
+            <option value="Candles">Candles</option>
           </select>
         </div>
 
@@ -135,15 +135,16 @@ const AddProduct = () => {
             <h6>Stock Quantity</h6>
           </label>
           <input
-            type="number"
-            className="form-control"
-            placeholder="Stock Remaining"
-            onChange={handleInputChange}
-            value={product.stockQuantity}
-            name="stockQuantity"
-            // value={`${stockAlert}/${stockQuantity}`}
-            id="stockQuantity"
-          />
+  type="number"
+  className="form-control"
+  placeholder="Stock Remaining"
+  onChange={handleInputChange}
+  value={product.quantity}  // <-- Change from stockQuantity to quantity
+  name="quantity"           // <-- Ensure this matches the backend field
+  required
+  min="0"
+/>
+
         </div>
         <div className="col-md-4">
           <label className="form-label">
@@ -177,9 +178,9 @@ const AddProduct = () => {
               type="checkbox"
               name="productAvailable"
               id="gridCheck"
-              checked={product.productAvailable}
+              checked={product.available}
               onChange={(e) =>
-                setProduct({ ...product, productAvailable: e.target.checked })
+                setProduct({ ...product, available: e.target.checked })
               }
             />
             <label className="form-check-label">Product Available</label>

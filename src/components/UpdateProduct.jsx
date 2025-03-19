@@ -15,20 +15,20 @@ const UpdateProduct = () => {
     category: "",
     releaseDate: "",
     productAvailable: false,
-    stockQuantity: "",
+    quantity: "",
   });
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/product/${id}`
+          `http://localhost:8080/api/products/${id}`
         );
 
         setProduct(response.data);
       
         const responseImage = await axios.get(
-          `http://localhost:8080/api/product/${id}/image`,
+          `http://localhost:8080/api/products/${id}/image`,
           { responseType: "blob" }
         );
        const imageFile = await converUrlToFile(responseImage.data,response.data.imageName)
@@ -67,7 +67,7 @@ const UpdateProduct = () => {
 
   console.log("formData : ", updatedProduct)
     axios
-      .put(`http://localhost:8080/api/product/${id}`, updatedProduct, {
+      .put(`http://localhost:8080/api/products/${id}`, updatedProduct, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -168,14 +168,14 @@ const UpdateProduct = () => {
               name="category"
               id="category"
             >
-              <option value="">Select category</option>
-              <option value="laptop">Laptop</option>
-              <option value="headphone">Headphone</option>
-              <option value="mobile">Mobile</option>
-              <option value="electronics">Electronics</option>
-              <option value="toys">Toys</option>
-              <option value="fashion">Fashion</option>
-            </select>
+             <option value="">Select category</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Crochets">Crochet</option>
+            <option value="Earrings">Earrings</option>
+            {/* <option value="Keychains">Keychains</option> */}
+            <option value="Toys">Toys</option>
+            <option value="Candles">Candles</option>
+          </select>
           </div>
 
           <div className="col-md-4">
