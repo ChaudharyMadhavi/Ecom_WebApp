@@ -148,9 +148,9 @@ const Home = ({ selectedCategory }) => {
                         className="card-text"
                         style={{ fontWeight: "600", margin: "5px 0" }}
                       >
-                        {"$" + price}
+                        {"₹" + price}
                       </h5>
-                      <button
+                      {/* <button
                         className="btn btn-primary"
                         style={{ width: "100%" }}
                         onClick={(e) => {
@@ -160,7 +160,7 @@ const Home = ({ selectedCategory }) => {
                         disabled={!productAvailable}
                       >
                         {productAvailable ? "Add to Cart" : "Out of Stock"}
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </Link>

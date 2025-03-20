@@ -101,7 +101,7 @@ const AddProduct = () => {
           <input
             type="number"
             className="form-control"
-            placeholder="Eg: $1000"
+            placeholder="Eg: ₹1000"
             onChange={handleInputChange}
             value={product.price}
             name="price"
